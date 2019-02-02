@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Show CSV file data</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="">
+      <h1 align="center">Click Button to show data</h1>
+      <table align="center" width="1000px">
+        <tr>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="tech" class="btn btn-info">Tech Events Data</button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="cultural" class="btn btn-info">Cultural Events Data</button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="fun" class="btn btn-info">Fun Events Data</button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="literary" class="btn btn-info">Literary Events Data</button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="paintball" class="btn btn-info">Paint Ball Data</button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button type="button" name="load_data" id="lan-gaming" class="btn btn-info">Lan Gaming Data</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="employee_table">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  $(document).ready(function() {
+    $('#tech').click(function() {
+      $.ajax({
+        url: "tech.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+    $('#paintball').click(function() {
+      $.ajax({
+        url: "paintball.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+    $('#lan-gaming').click(function() {
+      $.ajax({
+        url: "langaming.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+    $('#literary').click(function() {
+      $.ajax({
+        url: "literary.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+    $('#fun').click(function() {
+      $.ajax({
+        url: "fun.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+    $('#cultural').click(function() {
+      $.ajax({
+        url: "cultural.csv",
+        dataType: "text",
+        success: function(data) {
+          var employee_data = data.split(/\r?\n|\r/);
+          var table_data = '<table class="table table-bordered table-striped">';
+          for (var count = 0; count < employee_data.length; count++) {
+            var cell_data = employee_data[count].split(",");
+            table_data += '<tr>';
+            for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+              if (count === 0) {
+                table_data += '<th>' + cell_data[cell_count] + '</th>';
+              } else {
+                table_data += '<td>' + cell_data[cell_count] + '</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          $('#employee_table').html(table_data);
+        }
+      });
+    });
+
+  });
+</script>
